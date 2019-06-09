@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
     if @user.save
       @user.activate
+      session[:user_id] = @user.id
       # flash[:info] = 'Please check your email to activate your account.'
       redirect_to root_url
     else
